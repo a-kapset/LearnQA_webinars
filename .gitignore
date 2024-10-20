@@ -1,0 +1,30 @@
+# Node.js dependencies
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+package-lock.json
+.pnpm-debug.log*
+
+# TypeScript compiled files
+dist/
+build/
+lib/
+out/
+*.tsbuildinfo
+
+# Playwright test artifacts
+test-results/
+playwright-report/
+trace.zip
+
+# VSCode settings
+.vscode/
+.vscode-test/
+
+# MacOS system files
+.DS_Store
+
+# Logs
+logs/
+*.log
