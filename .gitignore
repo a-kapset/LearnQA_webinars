@@ -7,6 +7,7 @@ package-lock.json
 .pnpm-debug.log*
 
 # TypeScript compiled files
+TypeScript/target
 dist/
 build/
 lib/
