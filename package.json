@@ -1,0 +1,25 @@
+{
+  "name": "learnqa_webinars",
+  "version": "1.0.0",
+  "description": "LearnQA webinars code: TypeScript, Playwright (UI and API)",
+  "main": "index.js",
+  "scripts": {
+    "allure:generate": "npx allure generate ./allure-results --clean",
+    "allure:serve": "npx allure serve",
+    "test": "npx playwright test",
+    "docker-compose": "docker compose up api-tests"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@faker-js/faker": "^9.1.0",
+    "@playwright/test": "^1.48.2",
+    "@types/node": "^22.8.1",
+    "ajv": "^8.17.1",
+    "allure-commandline": "^2.29.0",
+    "allure-playwright": "^3.0.5",
+    "dotenv": "^16.4.5",
+    "typescript": "^5.6.3"
+  }
+}

@@ -17,6 +17,8 @@ out/
 # Playwright test artifacts
 test-results/
 playwright-report/
+allure-report/
+allure-results/
 trace.zip
 
 # VSCode settings
@@ -29,3 +31,6 @@ trace.zip
 # Logs
 logs/
 *.log
+/playwright-report/
+/blob-report/
+/playwright/.cache/
