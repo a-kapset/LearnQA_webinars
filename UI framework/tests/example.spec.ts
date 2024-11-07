@@ -19,7 +19,7 @@ test.describe('example', () => {
     await expect(title).toHaveText('Login')
   })
 
-  test('Make login', async ({ page }) => {
+  test('Successful login', async ({ page }) => {
     const userName = 'Playwright Demo'
     const password = 'ThePassword@123'
     const expectedURL = 'https://demoqa.com/profile'
@@ -35,6 +35,21 @@ test.describe('example', () => {
 
     await expect(page).toHaveURL(expectedURL)
     await expect(userNameValue).toBeVisible()
+  })
+
+  test('Failed login', async ({ page }) => {
+    const userName = 'Playwright Demo'
+    const password = 'notValidPassword'
+
+    const userNameInput = page.locator('#userName')
+    const passwordInput = page.locator('#password')
+    const loginButton = page.locator('#login')
+    const errorMessage = page.getByText('Invalid username or password!', { exact: true })
+
+    await userNameInput.type(userName)
+    await passwordInput.fill(password)
+    await loginButton.click()
+    await expect(errorMessage).toBeVisible()
   })
 })
 
