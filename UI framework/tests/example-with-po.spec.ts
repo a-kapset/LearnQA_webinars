@@ -1,4 +1,5 @@
-import { test } from '../fixtures/custom-fixtures'
+import { expect, test } from '../fixtures/custom-fixtures'
+import { GET_BOOKS_LIST, ONE_BOOK_MOCK } from '../mocks/book-mocks'
 
 const userName = process.env.USER_NAME as string
 const password = process.env.PASSWORD as string
@@ -24,5 +25,19 @@ test.describe('Example with PO', () => {
   test('Login button exists on books page', async ({ application }) => {
     await application.booksPage.visit()
     await application.booksPage.shouldHaveLoginButton()
+  })
+
+  test('Mocked book', async ({ application, mock }) => {
+    await mock.routeGET(GET_BOOKS_LIST, ONE_BOOK_MOCK)
+
+    await application.booksPage.visit()
+    await application.booksPage.shouldHaveCountOfBooks(1)
+  })
+
+  test('New tab handling', async ({ application, page }) => {
+    await application.browserWindowsPage.visit()
+    const newTab = await application.browserWindowsPage.openNewTab()
+
+    await expect(newTab).toHaveURL('/sample')
   })
 })
