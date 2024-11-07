@@ -34,7 +34,7 @@ test.describe('Example with PO', () => {
     await application.booksPage.shouldHaveCountOfBooks(1)
   })
 
-  test('New tab handling', async ({ application, page }) => {
+  test('New tab handling', async ({ application}) => {
     await application.browserWindowsPage.visit()
     const newTab = await application.browserWindowsPage.openNewTab()
 
