@@ -1,10 +1,11 @@
 import { test } from '../fixtures/custom-fixtures'
 
+const userName = process.env.USER_NAME as string
+const password = process.env.PASSWORD as string
+const invalidPassword = 'InvalidPassword'
+
 test.describe('Example with PO', () => {
   test('Successful login', async ({ application }) => {
-    const userName = 'Playwright Demo'
-    const password = 'ThePassword@123'
-
     await application.loginPage.visit()
     await application.loginPage.fillUserInput(userName)
     await application.loginPage.fillUserPassword(password)
@@ -15,9 +16,6 @@ test.describe('Example with PO', () => {
   })
 
   test('Failed login', async ({ application }) => {
-    const userName = 'Playwright Demo'
-    const invalidPassword = 'InvalidPassword'
-
     await application.loginPage.visit()
     await application.loginPage.loginWithCredentials(userName, invalidPassword)
     await application.loginPage.shouldHaveErrorMessage('Invalid username or password!')

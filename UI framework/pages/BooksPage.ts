@@ -5,7 +5,7 @@ export class BooksPage extends BasePage {
   readonly loginButton: Locator
 
   constructor(protected page: Page) {
-    super(page, 'https://demoqa.com/books')
+    super(page, '/books')
     this.loginButton = this.page.locator('button#login')
   }
 
