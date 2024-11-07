@@ -1,4 +1,4 @@
-import { Page } from '@playwright/test'
+import { expect, Page } from '@playwright/test'
 import { BasePage } from './BasePage'
 
 export class ProfilePage extends BasePage {
@@ -8,5 +8,9 @@ export class ProfilePage extends BasePage {
 
   public getUserTitle(userName: string) {
     return this.page.getByText(userName)
+  }
+
+  public async shouldHaveUserTitleWithName(userName) {
+    await expect(this.getUserTitle(userName)).toBeVisible()
   }
 }
